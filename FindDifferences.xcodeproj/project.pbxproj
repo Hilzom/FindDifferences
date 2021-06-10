@@ -3,27 +3,95 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070912C82662ED8A00565220 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912C72662ED8A00565220 /* SettingsViewController.swift */; };
+		070912CA2662EE9E00565220 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912C92662EE9E00565220 /* SettingsCell.swift */; };
+		070912CC2662EF4E00565220 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912CB2662EF4E00565220 /* UIColor+Helpers.swift */; };
+		070912CF2662F11900565220 /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912CE2662F11900565220 /* SettingsViewController+DataSource.swift */; };
+		070912D12662F30C00565220 /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912D02662F30C00565220 /* SettingsViewController+Delegate.swift */; };
+		070912D42663B83600565220 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912D32663B83600565220 /* TrainingViewController.swift */; };
+		070912D62663BAF500565220 /* TrainingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912D52663BAF500565220 /* TrainingScrollView.swift */; };
+		070912D82663D8F000565220 /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070912D72663D8F000565220 /* AttentionView.swift */; };
+		074E05AC265C51E5004E5EA2 /* FoundDifferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E05AB265C51E5004E5EA2 /* FoundDifferenceButton.swift */; };
+		074E05AE265C58AC004E5EA2 /* DifferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E05AD265C58AC004E5EA2 /* DifferenceView.swift */; };
+		07583B8C265D50F400E5B435 /* FoundDifferencesBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B8B265D50F400E5B435 /* FoundDifferencesBar.swift */; };
+		07583B8E265D58AD00E5B435 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B8D265D58AC00E5B435 /* PopUpViewController.swift */; };
+		07583B92265D66DB00E5B435 /* PauseSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B91265D66DB00E5B435 /* PauseSwitchCell.swift */; };
+		07583B95265D67A700E5B435 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B94265D67A700E5B435 /* CellIdentifiable.swift */; };
+		07583B97265D6C0400E5B435 /* CenteredLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B96265D6C0400E5B435 /* CenteredLabelCell.swift */; };
+		07583B99265D6FA200E5B435 /* PauseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B98265D6FA200E5B435 /* PauseCellProtocol.swift */; };
+		07583B9B265D728B00E5B435 /* PauseButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B9A265D728B00E5B435 /* PauseButtonCell.swift */; };
+		07583B9E265D7D4E00E5B435 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07583B9D265D7D4E00E5B435 /* R.generated.swift */; };
+		077064C8266D62E6009DF927 /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077064C7266D62E6009DF927 /* AppStoreManager.swift */; };
+		077064CA266D6BED009DF927 /* CircledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077064C9266D6BED009DF927 /* CircledView.swift */; };
+		0784B98626543CE000B63302 /* DynamicPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784B98526543CE000B63302 /* DynamicPoint.swift */; };
+		0784B9882654441300B63302 /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784B9872654441300B63302 /* GameTimer.swift */; };
+		0784B98A2654459700B63302 /* GameViewController+GameTimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784B9892654459700B63302 /* GameViewController+GameTimerDelegate.swift */; };
+		0784B98D2654554B00B63302 /* DiiffenceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784B98C2654554B00B63302 /* DiiffenceScrollView.swift */; };
 		0791ED2A264EDCA8000F2639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED29264EDCA8000F2639 /* AppDelegate.swift */; };
 		0791ED2C264EDCA8000F2639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED2B264EDCA8000F2639 /* SceneDelegate.swift */; };
-		0791ED2E264EDCA8000F2639 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED2D264EDCA8000F2639 /* ViewController.swift */; };
-		0791ED31264EDCA8000F2639 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0791ED2F264EDCA8000F2639 /* Main.storyboard */; };
 		0791ED33264EDCAC000F2639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0791ED32264EDCAC000F2639 /* Assets.xcassets */; };
 		0791ED36264EDCAC000F2639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0791ED34264EDCAC000F2639 /* LaunchScreen.storyboard */; };
+		0791ED3E264EDD6D000F2639 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED3D264EDD6D000F2639 /* GlobalConstants.swift */; };
+		0791ED41264EDDBC000F2639 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED40264EDDBC000F2639 /* LaunchScreenViewController.swift */; };
+		0791ED45264EDF24000F2639 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED44264EDF24000F2639 /* UIView+Helpers.swift */; };
+		0791ED48264EDFBA000F2639 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED47264EDFBA000F2639 /* HomeScreenViewController.swift */; };
+		0791ED4B264EE59D000F2639 /* UserDefaultsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED4A264EE59D000F2639 /* UserDefaultsDataProvider.swift */; };
+		0791ED4E264EF25E000F2639 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED4D264EF25E000F2639 /* GameViewController.swift */; };
+		0791ED50264EFB61000F2639 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED4F264EFB61000F2639 /* HomePresenter.swift */; };
+		0791ED53264F0021000F2639 /* GameViewController+ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0791ED52264F0021000F2639 /* GameViewController+ScrollViewDelegate.swift */; };
+		07A2A3C1266270E3001BCF61 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2A3C0266270E3001BCF61 /* ImageCell.swift */; };
+		07F574572662AB6200365AB8 /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F574562662AB6200365AB8 /* WinViewController.swift */; };
+		B5A93A38DAE98DA672932F1E /* Pods_FindDifferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF692905F7D6A2F02312225 /* Pods_FindDifferences.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070912C72662ED8A00565220 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		070912C92662EE9E00565220 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		070912CB2662EF4E00565220 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		070912CE2662F11900565220 /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		070912D02662F30C00565220 /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		070912D32663B83600565220 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		070912D52663BAF500565220 /* TrainingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScrollView.swift; sourceTree = "<group>"; };
+		070912D72663D8F000565220 /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
+		074E05AB265C51E5004E5EA2 /* FoundDifferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundDifferenceButton.swift; sourceTree = "<group>"; };
+		074E05AD265C58AC004E5EA2 /* DifferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferenceView.swift; sourceTree = "<group>"; };
+		07583B8B265D50F400E5B435 /* FoundDifferencesBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundDifferencesBar.swift; sourceTree = "<group>"; };
+		07583B8D265D58AC00E5B435 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		07583B91265D66DB00E5B435 /* PauseSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseSwitchCell.swift; sourceTree = "<group>"; };
+		07583B94265D67A700E5B435 /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		07583B96265D6C0400E5B435 /* CenteredLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredLabelCell.swift; sourceTree = "<group>"; };
+		07583B98265D6FA200E5B435 /* PauseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCellProtocol.swift; sourceTree = "<group>"; };
+		07583B9A265D728B00E5B435 /* PauseButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonCell.swift; sourceTree = "<group>"; };
+		07583B9D265D7D4E00E5B435 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		077064C7266D62E6009DF927 /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
+		077064C9266D6BED009DF927 /* CircledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircledView.swift; sourceTree = "<group>"; };
+		0784B98526543CE000B63302 /* DynamicPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPoint.swift; sourceTree = "<group>"; };
+		0784B9872654441300B63302 /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
+		0784B9892654459700B63302 /* GameViewController+GameTimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameTimerDelegate.swift"; sourceTree = "<group>"; };
+		0784B98C2654554B00B63302 /* DiiffenceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiiffenceScrollView.swift; sourceTree = "<group>"; };
 		0791ED26264EDCA8000F2639 /* FindDifferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindDifferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0791ED29264EDCA8000F2639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0791ED2B264EDCA8000F2639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0791ED2D264EDCA8000F2639 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0791ED30264EDCA8000F2639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0791ED32264EDCAC000F2639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0791ED35264EDCAC000F2639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0791ED37264EDCAC000F2639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0791ED3D264EDD6D000F2639 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		0791ED40264EDDBC000F2639 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		0791ED44264EDF24000F2639 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		0791ED47264EDFBA000F2639 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		0791ED4A264EE59D000F2639 /* UserDefaultsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataProvider.swift; sourceTree = "<group>"; };
+		0791ED4D264EF25E000F2639 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0791ED4F264EFB61000F2639 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		0791ED52264F0021000F2639 /* GameViewController+ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+ScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		07A2A3C0266270E3001BCF61 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		07F574562662AB6200365AB8 /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
+		4388DFF449929E4301705ABC /* Pods-FindDifferences.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindDifferences.release.xcconfig"; path = "Target Support Files/Pods-FindDifferences/Pods-FindDifferences.release.xcconfig"; sourceTree = "<group>"; };
+		9DF692905F7D6A2F02312225 /* Pods_FindDifferences.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindDifferences.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD46E4F1658C2F41690E5902 /* Pods-FindDifferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindDifferences.debug.xcconfig"; path = "Target Support Files/Pods-FindDifferences/Pods-FindDifferences.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +99,97 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A93A38DAE98DA672932F1E /* Pods_FindDifferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070912C62662ED7F00565220 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				070912CD2662F10B00565220 /* Extensions */,
+				070912C72662ED8A00565220 /* SettingsViewController.swift */,
+				070912C92662EE9E00565220 /* SettingsCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		070912CD2662F10B00565220 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				070912CE2662F11900565220 /* SettingsViewController+DataSource.swift */,
+				070912D02662F30C00565220 /* SettingsViewController+Delegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		070912D22663B81300565220 /* TrainingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				070912D32663B83600565220 /* TrainingViewController.swift */,
+				070912D52663BAF500565220 /* TrainingScrollView.swift */,
+				070912D72663D8F000565220 /* AttentionView.swift */,
+			);
+			path = TrainingViewController;
+			sourceTree = "<group>";
+		};
+		07583B8F265D595400E5B435 /* PauseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07583B90265D66C700E5B435 /* Views */,
+				07583B8D265D58AC00E5B435 /* PopUpViewController.swift */,
+			);
+			path = PauseViewController;
+			sourceTree = "<group>";
+		};
+		07583B90265D66C700E5B435 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07583B91265D66DB00E5B435 /* PauseSwitchCell.swift */,
+				07583B96265D6C0400E5B435 /* CenteredLabelCell.swift */,
+				07583B98265D6FA200E5B435 /* PauseCellProtocol.swift */,
+				07583B9A265D728B00E5B435 /* PauseButtonCell.swift */,
+				07A2A3C0266270E3001BCF61 /* ImageCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07583B93265D679B00E5B435 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				07583B94265D67A700E5B435 /* CellIdentifiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		077064C6266D62D3009DF927 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				077064C7266D62E6009DF927 /* AppStoreManager.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		0784B98B2654553F00B63302 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0784B98C2654554B00B63302 /* DiiffenceScrollView.swift */,
+				074E05AB265C51E5004E5EA2 /* FoundDifferenceButton.swift */,
+				074E05AD265C58AC004E5EA2 /* DifferenceView.swift */,
+				07583B8B265D50F400E5B435 /* FoundDifferencesBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0791ED1D264EDCA8000F2639 = {
 			isa = PBXGroup;
 			children = (
 				0791ED28264EDCA8000F2639 /* FindDifferences */,
 				0791ED27264EDCA8000F2639 /* Products */,
+				4977BB5B5AC681D3384DAE4E /* Pods */,
+				77A0D74F51ED0FD554390103 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +204,115 @@
 		0791ED28264EDCA8000F2639 /* FindDifferences */ = {
 			isa = PBXGroup;
 			children = (
+				077064C6266D62D3009DF927 /* IAP */,
+				07583B9D265D7D4E00E5B435 /* R.generated.swift */,
+				07583B93265D679B00E5B435 /* Protocols */,
+				0791ED49264EE576000F2639 /* UserDefaults */,
+				0791ED43264EDEFB000F2639 /* Helpers */,
+				0791ED3F264EDDAF000F2639 /* Scenes */,
 				0791ED29264EDCA8000F2639 /* AppDelegate.swift */,
 				0791ED2B264EDCA8000F2639 /* SceneDelegate.swift */,
-				0791ED2D264EDCA8000F2639 /* ViewController.swift */,
-				0791ED2F264EDCA8000F2639 /* Main.storyboard */,
 				0791ED32264EDCAC000F2639 /* Assets.xcassets */,
 				0791ED34264EDCAC000F2639 /* LaunchScreen.storyboard */,
 				0791ED37264EDCAC000F2639 /* Info.plist */,
+				0791ED3D264EDD6D000F2639 /* GlobalConstants.swift */,
 			);
 			path = FindDifferences;
+			sourceTree = "<group>";
+		};
+		0791ED3F264EDDAF000F2639 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				070912D22663B81300565220 /* TrainingViewController */,
+				070912C62662ED7F00565220 /* Settings */,
+				07F574552662AB5000365AB8 /* WinViewController */,
+				07583B8F265D595400E5B435 /* PauseViewController */,
+				0791ED4C264EF23A000F2639 /* GameScreen */,
+				0791ED46264EDFB1000F2639 /* HomeScreen */,
+				0791ED42264EDDE5000F2639 /* LaunchScreen */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0791ED42264EDDE5000F2639 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0791ED40264EDDBC000F2639 /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		0791ED43264EDEFB000F2639 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0791ED44264EDF24000F2639 /* UIView+Helpers.swift */,
+				070912CB2662EF4E00565220 /* UIColor+Helpers.swift */,
+				077064C9266D6BED009DF927 /* CircledView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0791ED46264EDFB1000F2639 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0791ED4F264EFB61000F2639 /* HomePresenter.swift */,
+				0791ED47264EDFBA000F2639 /* HomeScreenViewController.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		0791ED49264EE576000F2639 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				0791ED4A264EE59D000F2639 /* UserDefaultsDataProvider.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		0791ED4C264EF23A000F2639 /* GameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0784B98B2654553F00B63302 /* Views */,
+				0791ED51264EFFF3000F2639 /* Extensions */,
+				0791ED4D264EF25E000F2639 /* GameViewController.swift */,
+				0784B98526543CE000B63302 /* DynamicPoint.swift */,
+				0784B9872654441300B63302 /* GameTimer.swift */,
+			);
+			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		0791ED51264EFFF3000F2639 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0791ED52264F0021000F2639 /* GameViewController+ScrollViewDelegate.swift */,
+				0784B9892654459700B63302 /* GameViewController+GameTimerDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		07F574552662AB5000365AB8 /* WinViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07F574562662AB6200365AB8 /* WinViewController.swift */,
+			);
+			path = WinViewController;
+			sourceTree = "<group>";
+		};
+		4977BB5B5AC681D3384DAE4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD46E4F1658C2F41690E5902 /* Pods-FindDifferences.debug.xcconfig */,
+				4388DFF449929E4301705ABC /* Pods-FindDifferences.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		77A0D74F51ED0FD554390103 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DF692905F7D6A2F02312225 /* Pods_FindDifferences.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +322,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0791ED3A264EDCAC000F2639 /* Build configuration list for PBXNativeTarget "FindDifferences" */;
 			buildPhases = (
+				086A33D2B1432E1FAFA4CED0 /* [CP] Check Pods Manifest.lock */,
+				07583B9C265D7CB000E5B435 /* ShellScript */,
 				0791ED22264EDCA8000F2639 /* Sources */,
 				0791ED23264EDCA8000F2639 /* Frameworks */,
 				0791ED24264EDCA8000F2639 /* Resources */,
+				DE8F6E8443F5D873E4AC1919 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +377,119 @@
 			files = (
 				0791ED36264EDCAC000F2639 /* LaunchScreen.storyboard in Resources */,
 				0791ED33264EDCAC000F2639 /* Assets.xcassets in Resources */,
-				0791ED31264EDCA8000F2639 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07583B9C265D7CB000E5B435 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		086A33D2B1432E1FAFA4CED0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindDifferences-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE8F6E8443F5D873E4AC1919 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindDifferences/Pods-FindDifferences-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindDifferences/Pods-FindDifferences-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindDifferences/Pods-FindDifferences-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0791ED22264EDCA8000F2639 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0791ED2E264EDCA8000F2639 /* ViewController.swift in Sources */,
+				07583B92265D66DB00E5B435 /* PauseSwitchCell.swift in Sources */,
+				07F574572662AB6200365AB8 /* WinViewController.swift in Sources */,
+				0784B98D2654554B00B63302 /* DiiffenceScrollView.swift in Sources */,
 				0791ED2A264EDCA8000F2639 /* AppDelegate.swift in Sources */,
+				07583B97265D6C0400E5B435 /* CenteredLabelCell.swift in Sources */,
+				077064CA266D6BED009DF927 /* CircledView.swift in Sources */,
+				0791ED48264EDFBA000F2639 /* HomeScreenViewController.swift in Sources */,
+				07583B8E265D58AD00E5B435 /* PopUpViewController.swift in Sources */,
+				07583B95265D67A700E5B435 /* CellIdentifiable.swift in Sources */,
+				0791ED3E264EDD6D000F2639 /* GlobalConstants.swift in Sources */,
+				0791ED4E264EF25E000F2639 /* GameViewController.swift in Sources */,
+				07A2A3C1266270E3001BCF61 /* ImageCell.swift in Sources */,
+				074E05AE265C58AC004E5EA2 /* DifferenceView.swift in Sources */,
+				0791ED41264EDDBC000F2639 /* LaunchScreenViewController.swift in Sources */,
+				07583B9E265D7D4E00E5B435 /* R.generated.swift in Sources */,
+				070912CA2662EE9E00565220 /* SettingsCell.swift in Sources */,
+				0784B9882654441300B63302 /* GameTimer.swift in Sources */,
+				070912D12662F30C00565220 /* SettingsViewController+Delegate.swift in Sources */,
+				07583B99265D6FA200E5B435 /* PauseCellProtocol.swift in Sources */,
+				070912D62663BAF500565220 /* TrainingScrollView.swift in Sources */,
+				070912D42663B83600565220 /* TrainingViewController.swift in Sources */,
+				07583B8C265D50F400E5B435 /* FoundDifferencesBar.swift in Sources */,
+				070912D82663D8F000565220 /* AttentionView.swift in Sources */,
+				0791ED4B264EE59D000F2639 /* UserDefaultsDataProvider.swift in Sources */,
+				0791ED45264EDF24000F2639 /* UIView+Helpers.swift in Sources */,
+				0791ED53264F0021000F2639 /* GameViewController+ScrollViewDelegate.swift in Sources */,
+				077064C8266D62E6009DF927 /* AppStoreManager.swift in Sources */,
+				070912CC2662EF4E00565220 /* UIColor+Helpers.swift in Sources */,
+				070912CF2662F11900565220 /* SettingsViewController+DataSource.swift in Sources */,
+				0791ED50264EFB61000F2639 /* HomePresenter.swift in Sources */,
+				0784B98A2654459700B63302 /* GameViewController+GameTimerDelegate.swift in Sources */,
+				0784B98626543CE000B63302 /* DynamicPoint.swift in Sources */,
 				0791ED2C264EDCA8000F2639 /* SceneDelegate.swift in Sources */,
+				074E05AC265C51E5004E5EA2 /* FoundDifferenceButton.swift in Sources */,
+				07583B9B265D728B00E5B435 /* PauseButtonCell.swift in Sources */,
+				070912C82662ED8A00565220 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0791ED2F264EDCA8000F2639 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0791ED30264EDCA8000F2639 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0791ED34264EDCAC000F2639 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,16 +619,20 @@
 		};
 		0791ED3B264EDCAC000F2639 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD46E4F1658C2F41690E5902 /* Pods-FindDifferences.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.01;
 				DEVELOPMENT_TEAM = GGD43GP2SM;
 				INFOPLIST_FILE = FindDifferences/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = jakjakjakndaj.FindDifferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -302,16 +642,20 @@
 		};
 		0791ED3C264EDCAC000F2639 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4388DFF449929E4301705ABC /* Pods-FindDifferences.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.01;
 				DEVELOPMENT_TEAM = GGD43GP2SM;
 				INFOPLIST_FILE = FindDifferences/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = jakjakjakndaj.FindDifferences;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -21,7 +21,7 @@ final class FoundDifferenceButton: UIButton {
 
     func setInactive() {
         isActive = false
-        backgroundColor = .lightGray
+        backgroundColor = UIColor(white: 0.85, alpha: 1)
         setTitle("?", for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 12)
         setTitleColor(.darkGray, for: .normal)

@@ -14,8 +14,8 @@ class GameViewController: UIViewController {
     private lazy var animator = Animator(rootView: view)
 
     private(set) lazy var stackView: UIStackView = {
-        let topView = getWrappedView(with: "level_1_top_image")
-        let bottomView = getWrappedView(with: "level_1_bottom_image")
+        let topView = getWrappedView(with: topImage ?? "")
+        let bottomView = getWrappedView(with: bottomImage ?? "")
         let stackView = UIStackView(arrangedSubviews: [topView, bottomView])
         stackView.spacing = Constants.imageSpacing
         stackView.axis = .vertical
@@ -52,12 +52,21 @@ class GameViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    var darkModeActive = false
+    var darkViews: [UIView] = []
+    var overlayViews: [UIView?] = []
+    var scrollingIsActive = false
+    lazy var darkView = getDarkView()
+    lazy var navBarDarkView = getDarkView()
 
+    private(set) var currentImage: UIImage?
 
     private var zoomScaleLabels: [UIButton] = []
     private var wrappers: [UIView] = []
     private(set) var scrollViews: [DiiffenceScrollView] = []
     private(set) var differencePoints: [Difference]
+    private let topImage: String?
+    private let bottomImage: String?
 
     private lazy var timer = GameTimer(delegate: self)
     var currentZoomScaleValue: CGFloat = .zero {
@@ -80,6 +89,7 @@ class GameViewController: UIViewController {
         configureColors()
         configureLayout()
         configureNavBar()
+        currentZoomScaleValue = 1
         timer.resume()
     }
 
@@ -106,13 +116,17 @@ class GameViewController: UIViewController {
 
     // MARK: - Init
 
-    required init(differencePoints: [Difference]) {
+    required init(differencePoints: [Difference], topImage: String, bottomImage: String) {
+        self.topImage = topImage
+        self.bottomImage = bottomImage
         self.differencePoints = differencePoints
 
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
+        self.topImage = nil
+        self.bottomImage = nil
         fatalError()
     }
 
@@ -123,10 +137,12 @@ class GameViewController: UIViewController {
     }
 
     func configureLayout() {
+        view.addSubview(darkView)
         view.addSubview(stackView)
         view.addSubview(foundDifferencesView)
         view.addSubview(adsButtonContainer)
         adsButtonContainer.addSubview(adsButton)
+        view.addSubview(navBarDarkView)
 
         NSLayoutConstraint.activate([
             foundDifferencesView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -145,6 +161,29 @@ class GameViewController: UIViewController {
             adsButton.centerXAnchor.constraint(equalTo: adsButtonContainer.centerXAnchor),
             adsButton.centerYAnchor.constraint(equalTo: adsButtonContainer.centerYAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            darkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            darkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            darkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            darkView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            navBarDarkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navBarDarkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            navBarDarkView.topAnchor.constraint(equalTo: view.topAnchor),
+            navBarDarkView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
+
+        let imageSize = currentImage?.size ?? .init(width: 1, height: 1)
+        let stackWidth = view.frame.width - 10
+
+        let asceptRatio = imageSize.height / imageSize.width
+
+        let stackHeight = stackWidth * asceptRatio
+        print(imageSize.width, imageSize.height, stackWidth, asceptRatio, stackHeight)
+        scrollViews.forEach {
+            $0.heightAnchor.constraint(equalToConstant: stackHeight).isActive = true
+        }
     }
 
     func getScrollView(with name: String) -> DiiffenceScrollView {
@@ -169,6 +208,7 @@ class GameViewController: UIViewController {
     }
 
     func differenceDidPress(with model: Difference, view: UIView) {
+        disableDarkBGIfNeeded()
         if let toView = foundDifferencesView.currentView {
             animator.animateFound(from: view, to: toView)
         }
@@ -188,15 +228,23 @@ class GameViewController: UIViewController {
 
     @objc
     private func pauseDidPress() {
-        timer.pause()
-        let popUp = PopUpViewController(with: .pause)
-        popUp.onCloseCompletion = timer.resume
-        present(popUp, animated: true, completion: nil)
+        presentPopUp(type: .pause)
     }
 
     @objc
     private func adsButtonDidPress() {
-        print("hehe ", #function)
+        guard !UserDefaultsDataProvider.isPremium else {
+            enableDarkBG()
+            return
+        }
+        presentPopUp(type: .noVideoAd)
+    }
+
+    private func presentPopUp(type: PopUpViewController.PopUpType) {
+        timer.pause()
+        let popUp = PopUpViewController(with: type)
+        popUp.onCloseCompletion = timer.resume
+        present(popUp, animated: true, completion: nil)
     }
 
     // MARK: - Types
@@ -209,6 +257,112 @@ class GameViewController: UIViewController {
 
     deinit {
         print("hehe GameViewController deinit")
+    }
+
+    private func disableDarkBGIfNeeded() {
+        guard darkModeActive else { return }
+        zoomScaleLabels.forEach { $0.isHidden = false }
+        disableDarkBG()
+    }
+
+    func enableDarkBG() {
+        scrollViews.forEach { $0.zoomScale = 1 }
+        zoomScaleLabels.forEach { $0.isHidden = true }
+        darkModeActive = true
+        darkViews.forEach {
+            $0.alpha = 0
+            $0.backgroundColor = Colors.blurBgColor
+        }
+
+        let diffViews = getNextDiffViews()
+        for (index, view) in self.stackView.arrangedSubviews.enumerated() {
+            let container = view.subviews.first
+            let diffView = diffViews[index]
+            guard let (overlay, hand) = container?.createOverlay(to: diffView) else { continue }
+            container?.sendSubviewToBack(overlay)
+            overlay.alpha = .zero
+            hand.alpha = .zero
+            overlayViews.append(overlay)
+        }
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+
+        showViews(completion: {})
+    }
+
+    func getNextDiffViews() -> [UIView] {
+        return scrollViews.compactMap { $0.differenceViews.first(where: { !$0.model.isSelected }) }
+    }
+
+    func showViews(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            guard let self = self else { return}
+            self.darkViews.forEach {
+                $0.alpha = 1
+                $0.superview?.setNeedsLayout()
+                $0.superview?.layoutIfNeeded()
+            }
+            self.overlayViews.forEach {
+                $0?.alpha = 1
+                $0?.superview?.setNeedsLayout()
+                $0?.superview?.layoutIfNeeded()
+            }
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            completion()
+        }
+    }
+
+    func disableDarkBG() {
+        darkModeActive = false
+        clearAllViews { [weak self] in
+            self?.enableScrollingMode()
+        }
+    }
+
+    func clearAllViews(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            guard let self = self else { return }
+            self.darkViews.forEach {
+                $0.alpha = 0
+                $0.superview?.setNeedsLayout()
+                $0.superview?.layoutIfNeeded()
+            }
+            self.overlayViews.forEach {
+                $0?.alpha = 0
+                $0?.superview?.setNeedsLayout()
+                $0?.superview?.layoutIfNeeded()
+            }
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        } completion: {  [weak self] _ in
+            guard let self = self else { return }
+            (self.darkViews + self.overlayViews).forEach {
+                guard !(self.darkView == $0 || self.navBarDarkView == $0) else { return }
+                $0?.removeFromSuperview()
+            }
+            completion()
+        }
+    }
+
+    func disableScrollingMode() {
+        scrollViews.forEach { $0.isScrollEnabled = false }
+        scrollingIsActive = false
+        clearAllViews(completion: {})
+    }
+
+    func enableScrollingMode() {
+        scrollViews.forEach { $0.isScrollEnabled = true }
+        scrollingIsActive = true
+        clearAllViews(completion: {})
+    }
+
+    private func getDarkView() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        darkViews.append(view)
+        return view
     }
 }
 
@@ -260,7 +414,9 @@ extension GameViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: name)
+        let image = UIImage(named: name)
+        imageView.image = image
+        self.currentImage = image
         return imageView
     }
 }

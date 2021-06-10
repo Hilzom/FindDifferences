@@ -39,6 +39,8 @@ final class WinViewController: UIViewController {
         return button
     }()
 
+    private let maxLvl = 3
+
     private var isRealGame: Bool {
         HomeScreenViewController.isRealGame
     }
@@ -58,6 +60,7 @@ final class WinViewController: UIViewController {
         view.backgroundColor = .systemBlue
 
         guard isRealGame else { return }
+        guard maxLvl > UserDefaultsDataProvider.currentLevel else { return }
         UserDefaultsDataProvider.currentLevel += 1
     }
 

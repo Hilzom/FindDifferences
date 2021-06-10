@@ -130,7 +130,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 15 images.
+  /// This `R.image` struct is generated, and contains static references to 25 images.
   struct image {
     /// Image `aboutGameIcon`.
     static let aboutGameIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutGameIcon")
@@ -140,10 +140,30 @@ struct R: Rswift.Validatable {
     static let difference_found = Rswift.ImageResource(bundle: R.hostingBundle, name: "difference_found")
     /// Image `effect_hand`.
     static let effect_hand = Rswift.ImageResource(bundle: R.hostingBundle, name: "effect_hand")
-    /// Image `level_1_bottom_image`.
-    static let level_1_bottom_image = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_bottom_image")
-    /// Image `level_1_top_image`.
-    static let level_1_top_image = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_top_image")
+    /// Image `level_1_bottom`.
+    static let level_1_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_bottom")
+    /// Image `level_1_top`.
+    static let level_1_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_top")
+    /// Image `level_2_bottom`.
+    static let level_2_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_2_bottom")
+    /// Image `level_2_top`.
+    static let level_2_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_2_top")
+    /// Image `level_3_bottom`.
+    static let level_3_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_3_bottom")
+    /// Image `level_3_top`.
+    static let level_3_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_3_top")
+    /// Image `level_4_bottom`.
+    static let level_4_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_4_bottom")
+    /// Image `level_4_top`.
+    static let level_4_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_4_top")
+    /// Image `level_5_bottom`.
+    static let level_5_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_5_bottom")
+    /// Image `level_5_top`.
+    static let level_5_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_5_top")
+    /// Image `level_6_bottom`.
+    static let level_6_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_6_bottom")
+    /// Image `level_6_top`.
+    static let level_6_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_6_top")
     /// Image `missclickIcon`.
     static let missclickIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "missclickIcon")
     /// Image `musicIcon`.
@@ -192,16 +212,86 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "level_1_bottom_image", bundle: ..., traitCollection: ...)`
-    static func level_1_bottom_image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.level_1_bottom_image, compatibleWith: traitCollection)
+    /// `UIImage(named: "level_1_bottom", bundle: ..., traitCollection: ...)`
+    static func level_1_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_1_bottom, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "level_1_top_image", bundle: ..., traitCollection: ...)`
-    static func level_1_top_image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.level_1_top_image, compatibleWith: traitCollection)
+    /// `UIImage(named: "level_1_top", bundle: ..., traitCollection: ...)`
+    static func level_1_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_1_top, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_2_bottom", bundle: ..., traitCollection: ...)`
+    static func level_2_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_2_bottom, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_2_top", bundle: ..., traitCollection: ...)`
+    static func level_2_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_2_top, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_3_bottom", bundle: ..., traitCollection: ...)`
+    static func level_3_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_3_bottom, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_3_top", bundle: ..., traitCollection: ...)`
+    static func level_3_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_3_top, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_4_bottom", bundle: ..., traitCollection: ...)`
+    static func level_4_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_4_bottom, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_4_top", bundle: ..., traitCollection: ...)`
+    static func level_4_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_4_top, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_5_bottom", bundle: ..., traitCollection: ...)`
+    static func level_5_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_5_bottom, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_5_top", bundle: ..., traitCollection: ...)`
+    static func level_5_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_5_top, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_6_bottom", bundle: ..., traitCollection: ...)`
+    static func level_6_bottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_6_bottom, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "level_6_top", bundle: ..., traitCollection: ...)`
+    static func level_6_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.level_6_top, compatibleWith: traitCollection)
     }
     #endif
 

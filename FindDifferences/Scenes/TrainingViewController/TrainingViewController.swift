@@ -9,23 +9,16 @@ import UIKit
 
 final class TrainingViewController: GameViewController {
 
-    var darkViews: [UIView] = []
     var firstDifferences: [UIView] {
         scrollViews.compactMap { $0.differenceViews[1] }
     }
-    var overlayViews: [UIView?] = []
     var hands: [UIImageView] = []
-
-    lazy var darkView = getDarkView()
-    lazy var navBarDarkView = getDarkView()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setNeedsLayout()
         view.layoutIfNeeded()
     }
 
-    private var darkModeActive = false
-    private var scrollingIsActive = false
     private var needsToShowDarkMode = true
 
     override func viewDidAppear(_ animated: Bool) {
@@ -42,53 +35,51 @@ final class TrainingViewController: GameViewController {
         darkViews.forEach { $0.removeFromSuperview() }
     }
 
-    override func differenceDidPress(with model: Difference, view: UIView) {
-        disableDarkBGIfNeeded()
-        super.differenceDidPress(with: model, view: view)
-    }
-
-    private func getDarkView() -> UIView {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        darkViews.append(view)
-        return view
-    }
-
-    override func configureLayout() {
-        view.addSubview(darkView)
-        view.addSubview(stackView)
-        view.addSubview(foundDifferencesView)
-        view.addSubview(navBarDarkView)
-
-//        firstDifferences.forEach { $0.superview?.bringSubviewToFront($0) }
-
-
-//        firstDifferences.forEach { $0.superview?.bringSubviewToFront($0) }
-
-
-        NSLayoutConstraint.activate([
-            foundDifferencesView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            foundDifferencesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.contentTopMargin),
-            foundDifferencesView.heightAnchor.constraint(equalToConstant: 20),
-
-            stackView.topAnchor.constraint(equalTo: foundDifferencesView.bottomAnchor, constant: Constants.contentTopMargin),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5)
-        ])
-
-        NSLayoutConstraint.activate([
-            darkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            darkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            darkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            darkView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            navBarDarkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            navBarDarkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            navBarDarkView.topAnchor.constraint(equalTo: view.topAnchor),
-            navBarDarkView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        ])
-        currentZoomScaleValue = 1
-    }
+//    override func configureLayout() {
+//        view.addSubview(darkView)
+//        view.addSubview(stackView)
+//        view.addSubview(foundDifferencesView)
+//        view.addSubview(navBarDarkView)
+//
+////        firstDifferences.forEach { $0.superview?.bringSubviewToFront($0) }
+//
+//
+////        firstDifferences.forEach { $0.superview?.bringSubviewToFront($0) }
+//
+//
+//        NSLayoutConstraint.activate([
+//            foundDifferencesView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            foundDifferencesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.contentTopMargin),
+//            foundDifferencesView.heightAnchor.constraint(equalToConstant: 20),
+//
+//            stackView.topAnchor.constraint(equalTo: foundDifferencesView.bottomAnchor, constant: Constants.contentTopMargin),
+//            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+//            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//            darkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            darkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            darkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            darkView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//
+//            navBarDarkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            navBarDarkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            navBarDarkView.topAnchor.constraint(equalTo: view.topAnchor),
+//            navBarDarkView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+//        ])
+//        let imageSize = currentImage?.size ?? .init(width: 1, height: 1)
+//        let stackWidth = view.frame.width - 10
+//
+//        let asceptRatio = imageSize.height / imageSize.width
+//
+//        let stackHeight = stackWidth * asceptRatio
+//        print(imageSize.width, imageSize.height, stackWidth, asceptRatio, stackHeight)
+//        scrollViews.forEach {
+//            $0.heightAnchor.constraint(equalToConstant: stackHeight).isActive = true
+//        }
+//        currentZoomScaleValue = 1
+//    }
 
     override func getScrollView(with name: String) -> DiiffenceScrollView {
         let scrollView = TrainingScrollView(delegate: self, differences: differencePoints)
@@ -110,40 +101,8 @@ final class TrainingViewController: GameViewController {
 
         return scrollView
     }
-}
 
-extension TrainingViewController {
-    private func enableDarkBG() {
-        darkModeActive = true
-        darkViews.forEach {
-            $0.alpha = 0
-            $0.backgroundColor = Colors.blurBgColor
-        }
-
-        for (index, view) in self.stackView.arrangedSubviews.enumerated() {
-            let container = view.subviews.first
-            let diffView = self.firstDifferences[index]
-            guard let (overlay, hand) = container?.createOverlay(to: diffView) else { continue }
-            container?.sendSubviewToBack(overlay)
-            overlay.alpha = .zero
-            hand.alpha = .zero
-            overlayViews.append(overlay)
-            hands.append(hand)
-        }
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-
-        showViews(completion: {})
-    }
-
-    private func disableDarkBG() {
-        darkModeActive = false
-        clearAllViews { [weak self] in
-            self?.enableScrollingMode()
-        }
-    }
-
-    private func clearAllViews(completion: @escaping () -> Void) {
+    override func clearAllViews(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0.2) { [weak self] in
             guard let self = self else { return }
             self.darkViews.forEach {
@@ -170,7 +129,7 @@ extension TrainingViewController {
         }
     }
 
-    private func showViews(completion: @escaping () -> Void) {
+    override func showViews(completion: @escaping () -> Void) {
         UIView.animate(withDuration: 0.2) { [weak self] in
             guard let self = self else { return}
             self.darkViews.forEach {
@@ -195,22 +154,14 @@ extension TrainingViewController {
         }
     }
 
-    private func disableDarkBGIfNeeded() {
-        guard darkModeActive else { return }
-        disableDarkBG()
-    }
-}
-
-extension TrainingViewController {
-
-    private func enableScrollingMode() {
+    override func enableScrollingMode() {
         var scrollingHands: [UIImageView] = []
         let firstFrame = R.image.scrolling_first_frame()
         let secondFrame = R.image.scrolling_second_frame()
         let handMargin: CGFloat = 10
         scrollingIsActive = true
         for view in self.stackView.arrangedSubviews {
-//            let container = view.subviews.first
+            //            let container = view.subviews.first
             let hand = view.createHand()
             hand.image = firstFrame
             view.addSubview(hand)
@@ -236,6 +187,19 @@ extension TrainingViewController {
         }
     }
 
+    override func disableScrollingMode() {
+        scrollingIsActive = false
+        clearAllViews(completion: {})
+    }
+
+    private func disableScrollingModeIfNeeded() {
+        guard scrollingIsActive else { return }
+        disableScrollingMode()
+    }
+}
+
+extension TrainingViewController {
+
     private func checkIsPresenting() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -244,16 +208,6 @@ extension TrainingViewController {
                 return
             }
         }
-    }
-
-    private func disableScrollingMode() {
-        scrollingIsActive = false
-        clearAllViews(completion: {})
-    }
-
-    private func disableScrollingModeIfNeeded() {
-        guard scrollingIsActive else { return }
-        disableScrollingMode()
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -16,7 +16,6 @@ final class PauseButtonCell: UITableViewCell, PauseCellProtocol {
         button.clipsToBounds = true
         button.backgroundColor = Constants.ButtonBackgroundColor
         button.isUserInteractionEnabled = false
-        button.setTitleColor(Constants.buttonTextColor, for: .normal)
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 10)
         return button
     }()
@@ -25,6 +24,7 @@ final class PauseButtonCell: UITableViewCell, PauseCellProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureLayout()
+        configureColors()
     }
 
     required init?(coder: NSCoder) {
@@ -41,6 +41,11 @@ final class PauseButtonCell: UITableViewCell, PauseCellProtocol {
             return
 
         }
+    }
+
+    func configureColors() {
+        button.setTitleColor(.white, for: .normal)
+        contentView.backgroundColor = Colors.bgColor
     }
 
     private func configureLayout() {
@@ -65,7 +70,6 @@ final class PauseButtonCell: UITableViewCell, PauseCellProtocol {
     }
 
     private enum Constants {
-        static let buttonTextColor: UIColor = .white
         static let ButtonBackgroundColor: UIColor = .systemBlue
     }
 }

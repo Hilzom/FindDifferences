@@ -23,7 +23,9 @@ final class CenteredLabelCell: UITableViewCell, PauseCellProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureLayout()
+        configureColors()
     }
+    private var isExit: Bool = false
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -44,6 +46,11 @@ final class CenteredLabelCell: UITableViewCell, PauseCellProtocol {
         }
     }
 
+    func configureColors() {
+        titleLabel.textColor = isExit ? Constants.exitColor : Colors.textColor
+        contentView.backgroundColor = Colors.bgColor
+    }
+
     private func configureLayout() {
         contentView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
@@ -55,13 +62,15 @@ final class CenteredLabelCell: UITableViewCell, PauseCellProtocol {
     }
 
     private func configureAsExit() {
+        isExit = true
         titleLabel.text = "В меню"
-        titleLabel.textColor = Constants.exitColor
+        configureColors()
     }
 
     private func configureAsTitle(with text: String) {
+        isExit = false
         titleLabel.text = text
-        titleLabel.textColor = Constants.titleColorColor
+        configureColors()
     }
 
     private enum Constants {

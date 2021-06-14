@@ -30,6 +30,7 @@ final class GameTimer {
         }
     }
     private weak var delegate: GameTimerDelegate?
+    private var numberOfFailedTouches: Int = .zero
 
     init(totalTime: Int = 120, delegate: GameTimerDelegate) {
         self.delegate = delegate
@@ -47,7 +48,7 @@ final class GameTimer {
     }
 
     func touchFailed() {
-        totalTime -= 30
+        totalTime -= getAndIncrementFailedTouchSanction()
         timer?.fire()
     }
 
@@ -93,5 +94,16 @@ final class GameTimer {
         guard let timer = timer else { return }
         RunLoop.main.add(timer, forMode: .common)
         timer.fire()
+    }
+
+    private func getAndIncrementFailedTouchSanction() -> Int {
+        defer { numberOfFailedTouches += 1 }
+        switch numberOfFailedTouches {
+        case 0: return 10
+        case 1: return 15
+        case 2: return 20
+        case 3: return 25
+        default: return 30
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PauseCellProtocol: CellIdentifiable {
+protocol PauseCellProtocol: CellIdentifiable, AppearanceDelegate {
 
     func configure(with type: PopUpViewController.CellType)
 }

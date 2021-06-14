@@ -24,7 +24,6 @@ final class SettingsCell: UITableViewCell, CellIdentifiable {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
         return label
     }()
 
@@ -39,7 +38,6 @@ final class SettingsCell: UITableViewCell, CellIdentifiable {
     private let dividerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(rgb: 0xF2F2F7)
         return view
     }()
 
@@ -88,12 +86,20 @@ final class SettingsCell: UITableViewCell, CellIdentifiable {
         }
     }
 
+    func reloadColors() {
+        selectedBackgroundView?.backgroundColor = Colors.bgColor
+        contentView.backgroundColor = Colors.bgColor
+        accessoryView?.backgroundColor = Colors.bgColor
+        backgroundColor = Colors.bgColor
+        titleLabel.textColor = Colors.textColor
+        dividerView.backgroundColor = Colors.dividerColor
+    }
+
     private func configureLayout() {
         clipsToBounds = true
         let view = UIView()
-        view.backgroundColor = .white
         selectedBackgroundView = view
-        contentView.backgroundColor = .white
+        reloadColors()
 
         contentView.addSubview(iconView)
         contentView.addSubview(titleLabel)

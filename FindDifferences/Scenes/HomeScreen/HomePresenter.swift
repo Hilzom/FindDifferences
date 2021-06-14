@@ -16,7 +16,7 @@ final class HomePresenter: UINavigationController {
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = true
         view.backgroundColor = UIColor.clear
-        view.backgroundColor = Colors.backgroundLight
+        view.backgroundColor = Colors.bgColor
         delegate = self
     }
 }

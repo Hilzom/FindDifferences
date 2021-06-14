@@ -39,7 +39,7 @@ final class WinViewController: UIViewController {
         return button
     }()
 
-    private let maxLvl = 3
+    private let maxLvl = 7
 
     private var isRealGame: Bool {
         HomeScreenViewController.isRealGame

@@ -35,6 +35,7 @@ final class PauseSwitchCell: UITableViewCell, PauseCellProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureLayout()
+        configureColors()
     }
 
     required init?(coder: NSCoder) {
@@ -50,6 +51,11 @@ final class PauseSwitchCell: UITableViewCell, PauseCellProtocol {
 
     func configureSwitch(with value: Bool) {
         switchView.isOn = value
+    }
+
+    func configureColors() {
+        titleLabel.textColor = Colors.textColor
+        contentView.backgroundColor = Colors.bgColor
     }
 
     private func configureLayout() {

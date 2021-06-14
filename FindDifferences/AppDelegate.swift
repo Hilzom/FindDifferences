@@ -33,9 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
 
-        let root = LaunchScreenViewController()
-        window?.rootViewController = root
+        let home = HomeScreenViewController()
+        let presenter = HomePresenter(rootViewController: home)
+        window?.rootViewController = presenter
         window?.makeKeyAndVisible()
+        guard let window = window else { return }
+        UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: nil)
     }
 
     static func fatalErrorIfDebug() {

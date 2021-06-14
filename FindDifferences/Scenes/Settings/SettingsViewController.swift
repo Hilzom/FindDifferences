@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController, AppearanceDelegate {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -46,6 +46,7 @@ final class SettingsViewController: UIViewController {
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close))
         }
+        Appearance.add(self)
     }
 
     private func configureLayout() {
@@ -54,9 +55,15 @@ final class SettingsViewController: UIViewController {
         tableView.pin(to: view)
     }
 
-    private func configureColors() {
+    func configureColors() {
         tableView.backgroundColor = .clear
-        view.backgroundColor = UIColor(rgb: 0xF2F2F7)
+        tableView.subviews.forEach {
+            ($0 as? SettingsCell)?.reloadColors()
+        }
+        view.backgroundColor = Colors.dividerColor
+        navigationController?.navigationBar.barTintColor = Colors.dividerColor
+        navigationController?.navigationBar.tintColor = Colors.dividerColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): Colors.textColor]
     }
 
     private func setDelegates() {
@@ -73,7 +80,8 @@ final class SettingsViewController: UIViewController {
             [
                 .switch("Звуки", UserDefaultsDataProvider.isSoundsActive, R.image.soundsIcon()),
                 .switch("Музыка", UserDefaultsDataProvider.isMusicActive, R.image.musicIcon()),
-                .switch("Вибрация", UserDefaultsDataProvider.isVibrationsActive, nil)
+                .switch("Вибрация", UserDefaultsDataProvider.isVibrationsActive, R.image.vibration_icon()),
+                .switch("Тёмная тема", UserDefaultsDataProvider.isDarkModeActive, R.image.dark_mode_icon())
             ],
             [
                 .text("Обучение", R.image.tutorialicon()),

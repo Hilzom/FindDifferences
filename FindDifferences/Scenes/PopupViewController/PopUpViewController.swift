@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PopUpViewController: UIViewController {
+final class PopUpViewController: UIViewController, AppearanceDelegate {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -37,6 +37,7 @@ final class PopUpViewController: UIViewController {
         configureBlur()
         configureColors()
         configureLayout()
+        Appearance.add(self)
     }
 
     required init(with type: PopUpType) {
@@ -61,9 +62,12 @@ final class PopUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configureColors() {
+    func configureColors() {
         view.backgroundColor = .clear
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Colors.bgColor
+        tableView.subviews.forEach {
+            ($0 as? AppearanceDelegate)?.configureColors()
+        }
     }
 
     deinit {
@@ -108,7 +112,7 @@ final class PopUpViewController: UIViewController {
             .title("Пауза"),
             .switch("Звуки", UserDefaultsDataProvider.isSoundsActive, R.image.soundsIcon()),
             .switch("Музыка", UserDefaultsDataProvider.isMusicActive, R.image.musicIcon()),
-            .switch("Вибрация", UserDefaultsDataProvider.isVibrationsActive, nil),
+            .switch("Вибрация", UserDefaultsDataProvider.isVibrationsActive, R.image.vibration_icon()),
             .button("Продолжить", nil),
             .exit
         ]

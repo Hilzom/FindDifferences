@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, AppearanceDelegate {
 
     // MARK: - Properties
 
@@ -25,16 +25,18 @@ class GameViewController: UIViewController {
         return stackView
     }()
     private(set) lazy var foundDifferencesView = FoundDifferencesBar(differences: differencePoints)
-    private lazy var adsButton: UIButton = {
-        let button = UIButton.getSquaredButton(with: 80).withDisabledHighlight()
-        button.setImage(R.image.remove_ads_icon(), for: .normal)
-        button.addTarget(self, action: #selector(adsButtonDidPress), for: .touchUpInside)
-        let offset = adsLabel.frame.height + 5
-        button.imageEdgeInsets = .init(top: offset, left: offset, bottom: offset, right: offset)
+    private lazy var adsButton: UIImageView = {
+        let button = UIImageView()
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(adsButtonDidPress)))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 125).isActive = true
+        button.contentMode = .scaleAspectFill
+        button.image = R.image.show_ad_icon()
 
-        button.addSubview(adsLabel)
-        adsLabel.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
-        adsLabel.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+//        button.addSubview(adsLabel)
+//        adsLabel.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 15).isActive = true
+//        adsLabel.centerXAnchor.constraint(equalTo: button.leadingAnchor, constant: 8).isActive = true
 
         return button
     }()
@@ -44,6 +46,7 @@ class GameViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.isUserInteractionEnabled = false
+        label.font = UIFont.systemFont(ofSize: 13)
         label.sizeToFit()
         return label
     }()
@@ -132,8 +135,11 @@ class GameViewController: UIViewController {
 
     // MARK: - Private functions
 
-    private func configureColors() {
-        view.backgroundColor = Colors.backgroundLight
+    func configureColors() {
+        view.backgroundColor = Colors.bgColor
+        adsLabel.textColor = Colors.textColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): Colors.textColor]
+        foundDifferencesView.reload()
     }
 
     func configureLayout() {
@@ -208,6 +214,7 @@ class GameViewController: UIViewController {
     }
 
     func differenceDidPress(with model: Difference, view: UIView) {
+        Vibration.light.vibrate()
         disableDarkBGIfNeeded()
         if let toView = foundDifferencesView.currentView {
             animator.animateFound(from: view, to: toView)
@@ -223,7 +230,7 @@ class GameViewController: UIViewController {
     }
 
     private func configureNavBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(pauseDidPress))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Пауза", style: .plain, target: self, action: #selector(pauseDidPress))
     }
 
     @objc

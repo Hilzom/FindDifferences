@@ -13,6 +13,7 @@ private enum UserDefaultsKeys: String {
     case isMusicActive
     case isVibrationsActive
     case isPremium
+    case isDarkMode
 }
 
 
@@ -65,6 +66,15 @@ final class UserDefaultsDataProvider {
         }
     }
 
+    static var isDarkModeActive: Bool {
+        get {
+            userDefaults.value(forKey: UserDefaultsKeys.isDarkMode.rawValue) as? Bool ?? false
+        }
+        set {
+            userDefaults.setValue(newValue, forKey: UserDefaultsKeys.isDarkMode.rawValue)
+        }
+    }
+
     static func toggleSwitch(with name: String) {
         switch name {
         case "Звуки":
@@ -75,6 +85,10 @@ final class UserDefaultsDataProvider {
 
         case "Вибрация":
             UserDefaultsDataProvider.isVibrationsActive = !UserDefaultsDataProvider.isVibrationsActive
+
+        case "Тёмная тема":
+            UserDefaultsDataProvider.isDarkModeActive = !UserDefaultsDataProvider.isDarkModeActive
+            Appearance.updateTheme()
 
         default: AppDelegate.fatalErrorIfDebug()
         }

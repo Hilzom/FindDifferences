@@ -21,10 +21,18 @@ final class FoundDifferenceButton: UIButton {
 
     func setInactive() {
         isActive = false
-        backgroundColor = UIColor(white: 0.85, alpha: 1)
+        updateColors()
         setTitle("?", for: .normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        setTitleColor(.darkGray, for: .normal)
+    }
+
+    func updateColors() {
+        guard !isActive else { return }
+        switch Appearance.currentTheme {
+        case .dark: backgroundColor = UIColor(white: 0.25, alpha: 1)
+        case .light: backgroundColor = UIColor(white: 0.85, alpha: 1)
+        }
+        setTitleColor(.lightGray, for: .normal)
     }
 
     override var frame: CGRect {

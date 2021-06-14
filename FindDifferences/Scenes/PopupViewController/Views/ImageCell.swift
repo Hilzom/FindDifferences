@@ -20,12 +20,17 @@ final class ImageCell: UITableViewCell, PauseCellProtocol {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureLayout()
+        configureColors()
     }
 
     required init?(coder: NSCoder) {
         super.init(style: .default, reuseIdentifier: Self.identifier)
 
         configureLayout()
+    }
+
+    func configureColors() {
+        contentView.backgroundColor = Colors.bgColor
     }
 
     func configure(with type: PopUpViewController.CellType) {

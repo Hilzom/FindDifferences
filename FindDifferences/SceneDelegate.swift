@@ -17,9 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let root = LaunchScreenViewController()
-        window?.rootViewController = root
+        let home = HomeScreenViewController()
+        let presenter = HomePresenter(rootViewController: home)
+        window?.rootViewController = presenter
         window?.makeKeyAndVisible()
+        guard let window = window else { return }
+        UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: nil)
     }
 }
 

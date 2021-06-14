@@ -138,6 +138,7 @@ class DiiffenceScrollView: UIScrollView {
     }
 
     func missclicked(in point: CGPoint) {
+        Vibration.warning.vibrate()
         let dynamicX = point.x / contentSize.width * 100
         let dynamicY = point.y / contentSize.height * 100
         let point = DynamicPoint(percents: .init(x: dynamicX, y: dynamicY), imageSize: contentSize)

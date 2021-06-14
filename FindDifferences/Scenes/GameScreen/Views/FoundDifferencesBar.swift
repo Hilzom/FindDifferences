@@ -31,6 +31,7 @@ final class FoundDifferencesBar: UIStackView {
 
     func reload() {
         differencesButtons.reloadState(with: differences)
+        differencesButtons.forEach { $0.updateColors() }
     }
 
     private func configureSubviews() {

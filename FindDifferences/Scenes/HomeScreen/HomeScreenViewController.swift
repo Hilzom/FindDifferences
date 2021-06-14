@@ -20,6 +20,7 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
         return button
     }()
+    private lazy var textView = UITextView()
 
     private lazy var appNameLabel: UILabel = {
         let label = UILabel()
@@ -41,6 +42,7 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         configureColors()
         configureNavBar()
         Appearance.add(self)
+        addLevelControl()
     }
     let settingsButton = UIButton()
 
@@ -111,12 +113,12 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         UserDefaultsDataProvider.currentLevel
     }
     private var currentDifferences: [Difference] {
-        guard Self.testPoints.indices.contains(currentLvl - 1) else { return Self.testPoints[3] }
-        return Self.testPoints[3]
+        guard Self.testPoints.indices.contains(currentLvl - 1) else { return Self.testPoints[0] }
+        return Self.testPoints[currentLvl - 1]
     }
 
     private var imageName: String {
-        "level_\(4)"
+        "level_\(currentLvl)"
     }
     @objc
     private func playButtonDidPress() {
@@ -131,19 +133,6 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         let gameVC = TrainingViewController(differencePoints: Self.testPoints[0], topImage: "level_1_top", bottomImage: "level_1_bottom")
         navigationController?.pushViewController(gameVC, animated: true)
     }
-
-//    private static var testPoints: [Difference] {[
-//        .init(percents: .init(x: 8, y: 84)),
-//        .init(percents: .init(x: 9, y: -4)),
-//        .init(percents: .init(x: 20, y: 57)),
-//        .init(percents: .init(x: 26, y: 70)),
-//        .init(percents: .init(x: 32.5, y: 75)), // ведро
-//        .init(percents: .init(x: 37.5, y: 15)), // лампа
-//        .init(percents: .init(x: 67, y: 8)), // куст вверху
-//        .init(percents: .init(x: 60, y: 85)),
-//        .init(percents: .init(x: 85, y: 75)),
-//        .init(percents: .init(x: 95, y: 76.5))
-//    ]}
 
     private static var testPoints: [[Difference]] {[
         [
@@ -178,7 +167,7 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
 
         [
             .init(percents: .init(x: 9, y: 44)), // календарь
-            .init(percents: .init(x: 31.5, y: -3)), // лампа
+            .init(percents: .init(x: 33, y: -2)), // лампа
             .init(percents: .init(x: 21, y: 63)),  // полка
             .init(percents: .init(x: 33, y: 61.5)), // стул
             .init(percents: .init(x: 40, y: 29)), // пустая полка
@@ -189,7 +178,7 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         [
             .init(percents: .init(x: 4.5, y: 22)), // бутылка
             .init(percents: .init(x: 15, y: 60)), // стул
-//            .init(percents: .init(x: 20, y: 40)),  // цветок
+            .init(percents: .init(x: 43, y: 42)),  // цветок
             .init(percents: .init(x: 39, y: 11)), // лампа
             .init(percents: .init(x: 52.5, y: 13)), // пустота
             .init(percents: .init(x: 57, y: 73.5)), // сапоги
@@ -197,7 +186,7 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
         ], // 5
 
         [
-            .init(percents: .init(x: 12, y: 47)), // синяя херня
+            .init(percents: .init(x: 11.3, y: 64)), // синяя херня
             .init(percents: .init(x: 23, y: 27)), // дверка шкафа
             .init(percents: .init(x: 24, y: 56)),  // диск
             .init(percents: .init(x: 51.5, y: 62)), // зеленый контейнер
@@ -208,22 +197,43 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
 
         [
             .init(percents: .init(x: 11.5, y: 73)), // надпись
-//            .init(percents: .init(x: 14, y: 30)), // дерево
             .init(percents: .init(x: 29, y: 7)),  // треугольник желтый
+            .init(percents: .init(x: 29, y: 35.5)), // дерево
+            .init(percents: .init(x: 39.5, y: 40)), // 5
             .init(percents: .init(x: 54.5, y: 26)), // треугольник фиол
             .init(percents: .init(x: 61, y: 76.5)), // подарок
             .init(percents: .init(x: 83, y: 20)), // шар голуб
-//            .init(percents: .init(x: 80, y: 50)), // забор
         ], // 7
 
         [
             .init(percents: .init(x: 13, y: 35)), // акции
+            .init(percents: .init(x: 3.5, y: 70)), // полочка
             .init(percents: .init(x: 33, y: 37)), // пустая стена
             .init(percents: .init(x: 46, y: 49)),  // херня на майке
             .init(percents: .init(x: 56, y: 48)), // бумаги на стене
             .init(percents: .init(x: 62, y: 65.5)), // книги
             .init(percents: .init(x: 83, y: 38)), // плакат
         ], // 8
+
+        [
+            .init(percents: .init(x: 9.5, y: 19)), // надпись на стене
+            .init(percents: .init(x: 16.5, y: 68.5)), // стул
+            .init(percents: .init(x: 34.3, y: 11)), // волосы
+            .init(percents: .init(x: 47, y: 40)),  // кофта
+            .init(percents: .init(x: 45.85, y: 83)), // сапоги
+            .init(percents: .init(x: 54, y: 45)), // колба
+            .init(percents: .init(x: 80, y: 46)), // колба в холодильнике
+        ], // 9
+
+        [
+            .init(percents: .init(x: 0.7, y: 29.6)), // шар
+            .init(percents: .init(x: 21, y: 16)), // желтая рыба
+            .init(percents: .init(x: 24, y: 70)), // полка
+            .init(percents: .init(x: 31.5, y: 22)), // часы
+            .init(percents: .init(x: 43, y: 52)),  // игрушка
+            .init(percents: .init(x: 76.5, y: 57)), // цвет доски
+            .init(percents: .init(x: 65.8, y: 23)), // звезда
+        ], // 10
 
     ]}
 
@@ -262,5 +272,38 @@ final class HomeScreenViewController: UIViewController, AppearanceDelegate {
 
     struct GameTypeShared {
         static var type: GameType = .real
+    }
+}
+
+extension HomeScreenViewController: UITextViewDelegate {
+
+    private func addLevelControl() {
+        view.addSubview(textView)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        textView.delegate = self
+        textView.textColor = .systemRed
+        textView.text = "\(UserDefaultsDataProvider.currentLevel)"
+        textView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        textView.font = UIFont.boldSystemFont(ofSize: 30)
+        textView.textAlignment = .center
+        textView.backgroundColor = .lightGray
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc
+    private func closeKeyboard() {
+        textView.resignFirstResponder()
+    }
+
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text else { return }
+        guard !text.isEmpty else { return }
+        guard let int = Int(text) else { return }
+        UserDefaultsDataProvider.currentLevel = int
+        updateButton()
     }
 }

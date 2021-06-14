@@ -33,10 +33,7 @@ class GameViewController: UIViewController, AppearanceDelegate {
         button.heightAnchor.constraint(equalToConstant: 125).isActive = true
         button.contentMode = .scaleAspectFill
         button.image = R.image.show_ad_icon()
-
-//        button.addSubview(adsLabel)
-//        adsLabel.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 15).isActive = true
-//        adsLabel.centerXAnchor.constraint(equalTo: button.leadingAnchor, constant: 8).isActive = true
+        button.isUserInteractionEnabled = true
 
         return button
     }()
@@ -240,6 +237,7 @@ class GameViewController: UIViewController, AppearanceDelegate {
 
     @objc
     private func adsButtonDidPress() {
+        guard !darkModeActive else { return }
         guard !UserDefaultsDataProvider.isPremium else {
             enableDarkBG()
             return

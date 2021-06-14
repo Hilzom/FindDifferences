@@ -130,7 +130,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 41 images.
+  /// This `R.image` struct is generated, and contains static references to 36 images.
   struct image {
     /// Image `aboutGameIcon`.
     static let aboutGameIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutGameIcon")
@@ -146,12 +146,8 @@ struct R: Rswift.Validatable {
     static let level_10_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_10_bottom")
     /// Image `level_10_top`.
     static let level_10_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_10_top")
-    /// Image `level_1_bottom_image`.
-    static let level_1_bottom_image = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_bottom_image")
     /// Image `level_1_bottom`.
     static let level_1_bottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_bottom")
-    /// Image `level_1_top_image`.
-    static let level_1_top_image = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_top_image")
     /// Image `level_1_top`.
     static let level_1_top = Rswift.ImageResource(bundle: R.hostingBundle, name: "level_1_top")
     /// Image `level_2_bottom`.
@@ -204,12 +200,6 @@ struct R: Rswift.Validatable {
     static let show_ad_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "show_ad_icon")
     /// Image `soundsIcon`.
     static let soundsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "soundsIcon")
-    /// Image `testImgSmall`.
-    static let testImgSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "testImgSmall")
-    /// Image `testImg`.
-    static let testImg = Rswift.ImageResource(bundle: R.hostingBundle, name: "testImg")
-    /// Image `theme_0_appstore`.
-    static let theme_0_appstore = Rswift.ImageResource(bundle: R.hostingBundle, name: "theme_0_appstore")
     /// Image `tutorialicon`.
     static let tutorialicon = Rswift.ImageResource(bundle: R.hostingBundle, name: "tutorialicon")
     /// Image `vibration_icon`.
@@ -272,23 +262,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "level_1_bottom_image", bundle: ..., traitCollection: ...)`
-    static func level_1_bottom_image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.level_1_bottom_image, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "level_1_top", bundle: ..., traitCollection: ...)`
     static func level_1_top(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.level_1_top, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "level_1_top_image", bundle: ..., traitCollection: ...)`
-    static func level_1_top_image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.level_1_top_image, compatibleWith: traitCollection)
     }
     #endif
 
@@ -464,27 +440,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "soundsIcon", bundle: ..., traitCollection: ...)`
     static func soundsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.soundsIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "testImg", bundle: ..., traitCollection: ...)`
-    static func testImg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.testImg, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "testImgSmall", bundle: ..., traitCollection: ...)`
-    static func testImgSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.testImgSmall, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "theme_0_appstore", bundle: ..., traitCollection: ...)`
-    static func theme_0_appstore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.theme_0_appstore, compatibleWith: traitCollection)
     }
     #endif
 

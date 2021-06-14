@@ -43,7 +43,7 @@ final class DifferenceView: UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
         layer.borderWidth = 3
-        layer.borderColor = UIColor.systemGreen.cgColor
+        layer.borderColor = UIColor.clear.cgColor
     }
 
     required init?(coder: NSCoder) {
